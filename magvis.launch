@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="magvis" pkg="magvis" type="magvis.py" output="screen"/>
+    <node pkg="rosbag" type="record" name="rosbag_record_result_data"
+        args="record -O $(find magvis)/mag
+        /tf
+        /mavros/imu/mag"
+    />
+</launch>
