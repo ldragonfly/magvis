@@ -40,15 +40,17 @@ def mag_callback(data):
     y = magscale*data.magnetic_field.y
     z = magscale*data.magnetic_field.z
     s = numpy.sqrt(x*x + y*y + z*z)
-#    rospy.loginfo(" Magnetic Field(%d) : %.6lf %.6lf %.6lf %.6lf, (scale : %.6lf)", 
-#            len(point_cloud.point),
-#            s,
-#            x,
-#            y,
-#            z,
-#            magscale)
 
     global point_cloud
+    rospy.loginfo(" Mag Field(%d) : %.5lf %.5lf %.5lf, (X%.0f) | %.5lf %.5lf", 
+            len(point_cloud.points),
+            x,
+            y,
+            z,
+            magscale, 
+            s,
+            180/math.pi*math.atan2(-z, math.sqrt(x*x+y*y))
+            )
     point_cloud.header.frame_id = 'map'
     point_cloud.header.stamp = rospy.Time.now() 
 
@@ -160,11 +162,11 @@ def odom_callback(data):
     mag_yaw = qv_mult(q_rp, mag)
     yaw = math.atan2(mag_yaw[0], mag_yaw[1])
     
-    print(yaw)
+    #print(yaw)
     q_rpy = quaternion_from_euler(euler[0], euler[1], yaw)
     q_rp = quaternion_from_euler(euler[0], euler[1], 0)
     q_yaw = quaternion_from_euler(0, 0, yaw)
-    print(q_rpy)
+    #print(q_rpy)
 
     point_plane_cloud = PointCloud()
     point_plane_cloud.header.frame_id = 'map'

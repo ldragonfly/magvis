@@ -9,6 +9,7 @@ Panels:
         - /PointCloud1
         - /PointCloud2
         - /MarkerArray1
+        - /Odometry2
         - /Odometry2/Shape1
         - /Odometry3/Shape1
       Splitter Ratio: 0.5
@@ -155,7 +156,7 @@ Visualization Manager:
       Topic: /magvis/odometry_rpy
       Unreliable: false
       Value: false
-    - Angle Tolerance: 0.100000001
+    - Angle Tolerance: 0.00200000009
       Class: rviz/Odometry
       Covariance:
         Orientation:
@@ -248,7 +249,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 28.5744553
+      Distance: 31.0042381
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -263,10 +264,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.530397058
+      Pitch: 1.37979639
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.84040117
+      Yaw: 3.09540558
     Saved: ~
 Window Geometry:
   Displays:
